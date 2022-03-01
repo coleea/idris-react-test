@@ -2,15 +2,16 @@
   "name": "react-example",
   "license": "MIT",
   "scripts": {
-    "build": "sae build && idris2 test/Main.idr --codegen javascript -p react-example -p js-example -o index.js",
+    "build": "sae build && idris2 test/Main.idr --codegen javascript  -p js-example -o index.js",
+    "d": "yarn build && yarn start-server",
     "start-server": "parcel public/index.html",
     "watch": "fswatch test src | (while read; do yarn build; done)",
     "release": "rm -rf dist && parcel build --no-source-maps public/index.html",
     "dev": "yarn build && concurrently 'yarn start-server' 'yarn watch'"
   },
   "dependencies": {
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
